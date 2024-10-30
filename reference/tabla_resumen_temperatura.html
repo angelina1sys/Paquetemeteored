@@ -34,7 +34,7 @@ temperatura registrada a 150 cm de altura para cada estación."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Creación de tabla que resume temperatura de abrigo</h1>
-
+      <small class="dont-index">Source: <a href="https://github.com/angelina1sys/Paquetemeteored/blob/master/R/funcion_tabla_de_resumen_de_temperatura.R" class="external-link"><code>R/funcion_tabla_de_resumen_de_temperatura.R</code></a></small>
       <div class="d-none name"><code>tabla_resumen_temperatura.Rd</code></div>
     </div>
 
@@ -67,7 +67,13 @@ Es obligatorio que sea un data frame, de lo contrario, la función lanzará un m
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">tabla_resumen_temperatura</span><span class="op">(</span><span class="va">NH0910</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id     min_temp max_temp mean_temp</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> NH0910        0     35.2      17.7</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>

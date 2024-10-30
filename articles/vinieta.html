@@ -64,10 +64,87 @@
 
     
     
+<p>Función gráfico_temperatura_mensual</p>
+<p>La función grafico_temperatura_mensual permite generar un gráfico de
+líneas que muestra la temperatura promedio mensual agrupada por
+estación. Es útil para visualizar tendencias de temperatura a lo largo
+del año.</p>
+<p>Ejemplo de uso:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/angelina1sys/Paquetemeteored" class="external-link">Paquetemeteored</a></span><span class="op">)</span></span></code></pre></div>
-<p>Esta es una viñeta, acá se puede mostrar como usar algunas funciones
-tambien se puede poner ejemplos</p>
+<code class="sourceCode R"><span><span class="va">NH0910</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/descargar_datos.html">descargar_datos</a></span><span class="op">(</span><span class="st">"NH0910"</span>, <span class="st">"data"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">15553</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">35</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
+<span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span>   (1): id</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span>   (5): temperatura_abrigo_150cm, temperatura_abrigo_150cm_maxima, temper...</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">lgl</span>  (28): temperatura_intemperie_5cm_minima, temperatura_intemperie_50cm_mi...</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB;">date</span>  (1): fecha</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/grafico_temperatura_mensual.html">grafico_temperatura_mensual</a></span><span class="op">(</span><span class="va">NH0910</span>, colores <span class="op">=</span> <span class="st">"blue"</span>, titulo <span class="op">=</span> <span class="st">"Temperatura Promedio Mensual"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="vinieta_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<p>Función farenheit_a_centigrados</p>
+<p>Esta función convierte temperaturas de grados Fahrenheit a grados
+Celsius. Es útil cuando se trabaja con datos en diferentes sistemas de
+unidades.</p>
+<p>Ejemplo de uso:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/farenheit_a_centigrados.html">farenheit_a_centigrados</a></span><span class="op">(</span><span class="fl">90</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 32.22222</span></span></code></pre></div>
+<p>Función tabla_resumen_temperatura</p>
+<p>La función tabla_resumen_temperatura resume la temperatura de abrigo
+(150 cm) por estación, mostrando la temperatura mínima, máxima y
+promedio.</p>
+<p>Ejemplo de uso:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/tabla_resumen_temperatura.html">tabla_resumen_temperatura</a></span><span class="op">(</span><span class="va">NH0910</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
+<span><span class="co">#&gt;   id     min_temp max_temp mean_temp</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> NH0910        0     35.2      17.7</span></span></code></pre></div>
+<p>Función descargar_datos</p>
+<p>La función descargar_datos permite descargar los datos meteorológicos
+de una estación específica. Los IDs de las estaciones disponibles son
+NH0098, NH0046, NH437, NH472 y NH0910.</p>
+<p>Ejemplo de uso:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/descargar_datos.html">descargar_datos</a></span><span class="op">(</span><span class="st">"NH0098"</span>, <span class="st">"data"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: One or more parsing issues, call `problems()` on your data frame for details,</span></span>
+<span><span class="co">#&gt; e.g.:</span></span>
+<span><span class="co">#&gt;   dat &lt;- vroom(...)</span></span>
+<span><span class="co">#&gt;   problems(dat)</span></span>
+<span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">23733</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">35</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
+<span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span>   (2): id, direccion_viento_1000cm</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span>  (21): temperatura_abrigo_150cm, temperatura_abrigo_150cm_maxima, temper...</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">lgl</span>  (11): temperatura_intemperie_50cm_minima, temperatura_inte_5cm, tempera...</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB;">date</span>  (1): fecha</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 23,733 × 35</span></span></span>
+<span><span class="co">#&gt;    id     fecha      temperatura_abrigo_150cm temperatura_abrigo_150cm_maxima</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>                        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> NH0098 1956-04-01                     13.6                            21.6</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> NH0098 1956-04-02                     16.8                            23.6</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> NH0098 1956-04-03                     19                              25.9</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> NH0098 1956-04-04                     17.6                            23.6</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> NH0098 1956-04-05                     20                              27.2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> NH0098 1956-04-06                     19.2                            24.7</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> NH0098 1956-04-07                     15                              19.1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> NH0098 1956-04-08                     18.8                            26.8</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> NH0098 1956-04-09                     18.2                            26.6</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> NH0098 1956-04-10                     11.4                            15.4</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 23,723 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 31 more variables: temperatura_abrigo_150cm_minima &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   temperatura_intemperie_5cm_minima &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   temperatura_intemperie_50cm_minima &lt;lgl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   temperatura_suelo_5cm_media &lt;dbl&gt;, temperatura_suelo_10cm_media &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   temperatura_inte_5cm &lt;lgl&gt;, temperatura_intemperie_150cm_minima &lt;lgl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   humedad_suelo &lt;lgl&gt;, precipitacion_pluviometrica &lt;dbl&gt;, granizo &lt;dbl&gt;, …</span></span></span></code></pre></div>
   </main>
 </div>
 
