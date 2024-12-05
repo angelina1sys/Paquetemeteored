@@ -34,7 +34,7 @@ write.csv(mtcars, temp_file)
 read.csv(temp_file)  
 unlink(temp_file)  
 
-NH0910 <- descargar_datos("NH0910", "temp_file")
+NH0910 <- descargar_datos("NH0910", temp_file)
 colores <- c("pink", "blue", "green", "yellow", "red")
 grafico_temperatura_mensual(NH0910, colores, titulo = "Temperatura Promedio Mensual")
 
