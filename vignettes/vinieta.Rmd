@@ -30,9 +30,7 @@ Ejemplo de uso:
 ```{r}
 
 temp_file <- tempfile(fileext = ".csv")
-write.csv(mtcars, temp_file)
-read.csv(temp_file)  
-unlink(temp_file)  
+
 
 NH0910 <- descargar_datos("NH0910", temp_file)
 colores <- c("pink", "blue", "green", "yellow", "red")

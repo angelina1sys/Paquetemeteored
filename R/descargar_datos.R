@@ -21,9 +21,6 @@
 #' @examples
 #'
 #' temp_file <- tempfile(fileext = ".csv")
-#' write.csv(mtcars, temp_file)
-#' read.csv(temp_file)
-#' unlink(temp_file)  # Elimina el archivo temporal
 #'
 #'
 #' descargar_datos("NH0098", temp_file)
